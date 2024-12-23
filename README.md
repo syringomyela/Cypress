@@ -1,1 +1,2 @@
-Initialization
+# Cypress
+Practice with Cypress
