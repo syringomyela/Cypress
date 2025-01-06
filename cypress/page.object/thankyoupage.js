@@ -8,4 +8,4 @@ class ThankyouPage {
     }
 }
 
-export {ThankyouPage}
+export default new ThankyouPage()

@@ -1,7 +1,6 @@
-import { FormPage } from "../page.object/formpage"
-import { ThankyouPage } from "../page.object/thankyoupage";
-import { errorElements } from "../page.object/errorpage";
-import { beforeEach } from "mocha";
+import formPage from "../page.object/formpage"
+import tyPage from "../page.object/thankyoupage";
+import errorPage from "../page.object/errorpage";
 
 beforeEach(() => {
   cy.visit('/contactus.html');
@@ -9,8 +8,6 @@ beforeEach(() => {
 
 describe('Positive tests', () => {
   it('Fill fields with correct data, submit and verify app responce', () => {
-    const formPage = new FormPage;
-    const tyPage = new ThankyouPage;
     formPage.fillFieldsCorrectly();
     formPage.clickSubmitButton();
     const successMsg = tyPage.TYpageElements();
@@ -20,15 +17,14 @@ describe('Positive tests', () => {
 
 describe('Negative tests', () => {
   it('Fill email field with incorrect data', () => {
-    const formPage = new FormPage;
     formPage.fillFieldsIncorrectly();
     formPage.clickSubmitButton();
-    cy.get(errorElements.element).should('contain.text',errorElements.emailMessage)
+    errorPage.errorElements().element.should('contain.text',errorPage.errorElements().emailMessage)
   })
 
   it('Left all fields empty and submit', () => {
-    const formPage = new FormPage;
     formPage.clickSubmitButton();
-    cy.get(errorElements.element).should('contain.text',errorElements.fieldsMessage).and('contain.text',errorElements.emailMessage)
+    errorPage.errorElements().element.
+      should('contain.text',errorPage.errorElements().fieldsMessage).and('contain.text',errorPage.errorElements().emailMessage)
   })
 })

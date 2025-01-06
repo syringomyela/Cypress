@@ -1,8 +1,8 @@
- import { Utilities } from "../fixtures/utilities";
+ import Utilities from "../fixtures/utilities";
  
  class FormPage{
     constructor(){
-        this.utilities = new Utilities;
+
     }
 
     formPageElements() {
@@ -17,22 +17,22 @@
     }
 
     fillFirstnameField() {
-        const firstName = this.utilities.getRandomInputData(10);
+        const firstName = Utilities.getRandomInputData(10);
         this.formPageElements().firstnameField.type(firstName);
     }
 
     fillLastnameField() {
-        const lastName = this.utilities.getRandomInputData(10);
+        const lastName = Utilities.getRandomInputData(10);
         this.formPageElements().lastnameField.type(lastName);
     }
 
     fillEmailField() {
-        const email = this.utilities.getRandomEmail();
+        const email = Utilities.getRandomEmail();
         this.formPageElements().emailField.type(email);
     }
 
     fillCommentField() {
-        const comment = this.utilities.getRandomInputData(20);
+        const comment = Utilities.getRandomInputData(20);
         this.formPageElements().commentsField.type(comment);
     }
 
@@ -47,9 +47,10 @@
         this.fillFirstnameField();
         this.fillLastnameField();
         ( () => {
-            const email = this.utilities.getRandomInputData(10);
+            const email = Utilities.getRandomInputData(10);
             this.formPageElements().emailField.type(email)
         })();
+        Utilities.getRandomInputData
         this.fillCommentField();
     }
 
@@ -62,4 +63,4 @@
     }
 }
 
-export {FormPage}
+export default new FormPage()

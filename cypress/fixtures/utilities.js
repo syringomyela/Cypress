@@ -12,4 +12,4 @@ class Utilities {
     }
 }
 
-export {Utilities}
+export default new Utilities();
