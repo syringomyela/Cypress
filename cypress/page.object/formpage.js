@@ -46,11 +46,7 @@
     fillFieldsIncorrectly() {
         this.fillFirstnameField();
         this.fillLastnameField();
-        ( () => {
-            const email = Utilities.getRandomInputData(10);
-            this.formPageElements().emailField.type(email)
-        })();
-        Utilities.getRandomInputData
+        this.formPageElements().emailField.type(Utilities.getRandomInputData(10))
         this.fillCommentField();
     }
 
